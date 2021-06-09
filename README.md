@@ -1,12 +1,39 @@
 # 将Mysql建表语句转义为实体
 
 ## 包引用
+### 正常使用
 ```
 <dependency>
     <groupId>com.bumao.model</groupId>
     <artifactId>table2entry</artifactId>
     <version>0.0.1</version>
 </dependency>
+```
+### 包冲突的处理
+```
+<dependency>
+    <groupId>com.bumao.model</groupId>
+    <artifactId>table2entry</artifactId>
+    <version>0.0.1</version>
+    <exclusions>
+        <!--druid-->
+        <exclusion>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </exclusion>
+        <!--lombok-->
+        <exclusion>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </exclusion>
+        <!--slf4j-api-->
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
 ```
 
 ## 使用
